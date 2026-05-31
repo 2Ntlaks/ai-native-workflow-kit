@@ -1,25 +1,33 @@
 # AI-Native Workflow Kit
 
-A practical Markdown operating manual for delegating software work to AI coding agents while keeping the human in charge of product judgment, permissions, review, and final acceptance.
+A practical Markdown operating manual for giving AI coding agents enough context and room to do strong work while keeping the human responsible for product judgment, permissions, review, and final acceptance.
 
 This kit is for builders working across C, Java, WebGL, databases, embedded systems, desktop apps, tutoring systems, portfolio projects, and other real codebases.
 
 The goal is simple:
 
-> Stop being the bottleneck without blindly trusting the agent.
+> Stop being the bottleneck by giving the agent room to work without giving up judgment.
+
+## Why I Built This
+
+I built this because I noticed I was the bottleneck in my own projects. The models behind coding agents are genuinely powerful: they often know more than I do, and when they do not, they can research, compare options, and come back with a better result than I would produce manually. The answer was not to hand over the keys; it was to give the agent enough context and clear boundaries, let it explore ways to solve the problem, and keep myself responsible for judgment, review, and the final decision.
 
 ## What This Is
 
-This repo helps you give coding agents better work and review their output faster. It provides:
+This repo helps you give coding agents better work, let them use their capability, and review the output faster. It provides:
 
-- task briefs that define scope, acceptance criteria, verification, and stop conditions
-- autonomy levels so the agent knows when to research, plan, edit, or stop
+- task briefs that give the agent context, scope, acceptance criteria, verification, and stop conditions
+- autonomy levels so the agent knows how much room it has to research, plan, edit, or stop
 - workflows for bug fixes, features, refactors, tests, research spikes, and code review
 - checklists for inspecting diffs, tests, security risks, docs, and merge readiness
 - review packet templates so every agent task ends with evidence, risks, and review focus
 - source tracking so important claims are not treated as magic advice
 
 This is not a prompt dump, productivity hack list, or software app.
+
+## Context Is The Leverage
+
+The quality of agent output is mostly a function of context quality plus clear boundaries. If the agent gets the right files, constraints, examples, acceptance criteria, and permission limits, it can explore solution paths instead of guessing what you meant. The value is not just asking better prompts; it is giving the model enough situational awareness to use its capability while you keep the final judgment.
 
 ## Try This In 10 Minutes
 
@@ -81,7 +89,7 @@ Default path for most tasks:
 1. Fill [templates/agent-task-brief.md](templates/agent-task-brief.md).
 2. Choose an autonomy level from [docs/autonomy-levels.md](docs/autonomy-levels.md).
 3. Pick a workflow from [workflows/README.md](workflows/README.md).
-4. Give the brief and context packet to the agent.
+4. Give the brief and context packet to the agent, then let it explore within the boundary.
 5. Review the result with the relevant checklist.
 6. Save the review packet and record repeated failures.
 
@@ -89,15 +97,16 @@ Default path for most tasks:
 
 ```text
 Define task -> choose workflow -> choose autonomy -> prepare context
--> agent researches/plans/implements -> agent verifies -> human reviews
+-> agent explores/researches/plans/implements -> agent verifies -> human reviews
 -> record lessons
 ```
 
-The agent can do more work. The human still owns the decision.
+The agent should do more of the work. The human still owns the decision.
 
 ## Who This Is For
 
 - Solo builders using coding agents on real projects.
+- Builders who suspect they are the bottleneck and want to delegate more without losing understanding.
 - Students who want agent help without losing understanding or review control.
 - Tutors and project builders working across assignments, tools, visualizers, databases, and desktop apps.
 - Developers who want repeatable review packets instead of vague agent summaries.
