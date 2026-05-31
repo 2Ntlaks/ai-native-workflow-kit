@@ -2,32 +2,50 @@
 
 ## Summary
 
-Implemented: Add local backup export for app data with clear restore notes.
+- Added a local backup export command for app data.
+- Backup files use a safe timestamped filename.
+- Documented restore or inspection steps without claiming cloud sync or encryption.
 
 ## Files Changed
 
-List files and reasons.
+- `src/storage/backup.*`: serializes current local data to a user-chosen backup file.
+- `src/ui/backup-action.*`: exposes export action and error feedback.
+- `docs/backup.md`: explains backup location, inspection, and manual restore.
+- `tests/backup.*`: covers filename creation and serialization where test seams exist.
 
 ## Key Decisions
 
-Kept the change minimal.
+- Decision: implement manual export only.
+- Reason: local-first backup should stay understandable before adding scheduling or sync.
+- Alternative not chosen: cloud backup, because that introduces accounts, privacy, and network failure modes.
 
 ## Tests Run
 
-`unit tests plus manual export/import smoke test`
+```bash
+npm test
+```
+
+Manual check:
+
+```text
+Create a backup, inspect file presence and size, then follow the documented restore or inspection step.
+```
 
 ## Evidence Of Correctness
 
-Command output or manual check summary.
+- Export creates a file at the chosen location.
+- Filename includes a safe timestamp.
+- Missing or unwritable paths produce a visible error.
 
 ## Risks And Uncertainties
 
-Remaining gaps.
+- Backup is not encrypted unless the app already encrypts the underlying data.
+- Manual restore may be error-prone if not implemented as a first-class command.
 
 ## Follow-Up Work
 
-Out-of-scope improvements.
+- Optional later: add restore automation after manual export proves useful.
 
 ## Human Review Focus
 
-Inspect behavior diff and verification evidence.
+- Check that the UI does not overpromise privacy, encryption, or cloud durability.

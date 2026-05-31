@@ -41,9 +41,9 @@ Reviewer stance: strict senior AI-native software engineer. Goal was to make the
 ## Remaining risks
 
 - Source cards are source-backed but not deeply quoted; future maintainers should re-check live docs before relying on exact product behavior.
-- Example folders now have stronger task briefs, but their `agent-plan.md` and `expected-review-packet.md` files are still intentionally generic. They may need one more pass after the owner runs real tasks.
+- Example folders now have stronger task briefs and domain-specific expected review packets. Most `agent-plan.md` files remain lightweight by design; replace them with real plans after the owner runs real tasks.
 - The kit is documentation-only. Its effectiveness depends on the human actually using review packets, checklists, and failure records.
-- The repo is not currently a Git repository, so there is no commit history for future agents to inspect.
+- The repo now has Git history, but the review record can become stale after publishing changes. Update `REPO_REVIEW.md` when it is used as a public trust signal.
 - Some workflows remain necessarily general because they must apply across C, Java, WebGL, databases, embedded systems, and desktop apps.
 
 ## Recommended next actions
@@ -53,3 +53,13 @@ Reviewer stance: strict senior AI-native software engineer. Goal was to make the
 3. Review the result with `checklists/implementation-review.md` and `checklists/test-review.md`.
 4. If the agent makes a repeated mistake, record it in `failures/failure-template.md` and update one checklist or template.
 5. After three real tasks, revisit the example folders and replace any remaining generic plans with real review packets.
+
+## Public Sharing Follow-Up
+
+Completed after outside-reader review:
+
+- Added a 60-second before/after example to the README.
+- Added a 10-minute path with only three files.
+- Linked a complete Java desktop mini case study from the README.
+- Rewrote expected review packets so the examples show concrete evidence and review focus.
+- Present the project as a v0.1 working manual, not a battle-tested framework.

@@ -2,32 +2,50 @@
 
 ## Summary
 
-Implemented: Debounce a button input for an Arduino lab without changing pin assignments.
+- Added debounce logic for a pushbutton input using `millis()`.
+- Preserved existing pin assignments and teaching-oriented structure.
+- Documented serial-monitor verification for hardware behavior.
 
 ## Files Changed
 
-List files and reasons.
+- `src/main.cpp` or sketch file: added debounce state and press/release handling.
+- `test/` files: added simulation test if the project already supports PlatformIO tests.
+- `README.md` or lab notes: documented manual serial-monitor check if no automated test exists.
 
 ## Key Decisions
 
-Kept the change minimal.
+- Decision: use a simple polling debounce instead of interrupts.
+- Reason: the lab is teaching digital input and state machines, and polling is easier to inspect.
+- Alternative not chosen: changing wiring or pin constants, because that would invalidate the lab setup.
 
 ## Tests Run
 
-`pio test or documented manual serial monitor check`
+```bash
+pio test
+```
+
+Fallback manual check:
+
+```text
+Upload sketch, open serial monitor, press/release the button ten times, and record observed event count.
+```
 
 ## Evidence Of Correctness
 
-Command output or manual check summary.
+- One physical press produces one logical event.
+- Holding the button does not repeatedly trigger unless repeat is part of the assignment.
+- Release and second press are detected.
 
 ## Risks And Uncertainties
 
-Remaining gaps.
+- Hardware bounce varies by button and wiring.
+- Serial-monitor verification is weaker than a deterministic simulation test.
 
 ## Follow-Up Work
 
-Out-of-scope improvements.
+- Optional later: add a simulation seam for time-based button state transitions.
 
 ## Human Review Focus
 
-Inspect behavior diff and verification evidence.
+- Confirm pin assignments are unchanged.
+- Confirm debounce timing remains understandable for students.
